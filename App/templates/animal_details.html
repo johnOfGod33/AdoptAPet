@@ -1,0 +1,64 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="p-6 max-w-4xl mx-auto space-y-6">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2 space-y-6">
+      <div class="bg-background p-6 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold text-primary text-left">
+          {{ animal.nom }}
+        </h1>
+        <div class="border-t-2 border-primary pt-4">
+          <div class="flex flex-wrap gap-4 sm:flex-row">
+            <div
+              class="bg-white p-1 rounded-lg shadow-md text-center w-1/3 sm:w-auto flex-1"
+            >
+              <h3 class="text-sm font-semibold text-primary mb-1">Espèce</h3>
+              <p class="text-xs text-text">{{ animal.espece }}</p>
+            </div>
+            <div
+              class="bg-white p-1 rounded-lg shadow-md text-center w-1/3 sm:w-auto flex-1"
+            >
+              <h3 class="text-sm font-semibold text-primary mb-1">Race</h3>
+              <p class="text-xs text-text">{{ animal.race }}</p>
+            </div>
+            <div
+              class="bg-white p-1 rounded-lg shadow-md text-center w-1/3 sm:w-auto flex-1"
+            >
+              <h3 class="text-sm font-semibold text-primary mb-1">Âge</h3>
+              <p class="text-xs text-text">{{ animal.age }} ans</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-background p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-semibold text-primary mb-4">À propos</h3>
+        <p class="text-text">{{ animal.description }}</p>
+      </div>
+    </div>
+
+    <div class="bg-background p-6 rounded-lg shadow-lg lg:col-span-1">
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-sm font-semibold text-primary">Adresse</h3>
+          <p class="text-xs text-text">{{ animal.adresse }}</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-primary">Ville</h3>
+          <p class="text-xs text-text">{{ animal.ville }}</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-primary">Code Postal</h3>
+          <p class="text-xs text-text">{{ animal.cp }}</p>
+        </div>
+      </div>
+      <div class="mt-10">
+        <a
+          href="mailto:{{ animal.courriel }}"
+          class="w-full py-2 px-6 bg-accent text-white rounded-lg hover:bg-primary focus:outline-none text-center transition duration-300"
+        >
+          Je suis intéressé(e)
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -37,3 +37,13 @@ class Animals_db :
         animals = [Animal(*animal) for animal in animals_data]
 
         return animals
+    
+    def get_animal_by_id(self, animal_id):
+        cursor = self.get_connection().cursor()
+        query = "SELECT * FROM animaux WHERE id = ?"
+        cursor.execute(query, (animal_id,))
+        animal_data = cursor.fetchone()
+
+        if animal_data:
+            return Animal(*animal_data) 
+        return None
