@@ -47,3 +47,19 @@ class Animals_db :
         if animal_data:
             return Animal(*animal_data) 
         return None
+    
+    def add_animal(self, nom, age, espece, race, description, courriel, adresse, ville, cp):
+        connection = self.get_connection()
+        cursor = connection.cursor()
+        query = """
+            INSERT INTO animaux (nom, age, espece, race, description, courriel, adresse, ville, cp)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """
+        
+        cursor.execute(query, (nom, age, espece, race, description, courriel, adresse, ville, cp))
+        connection.commit()
+
+        return cursor.lastrowid
+
+
+        

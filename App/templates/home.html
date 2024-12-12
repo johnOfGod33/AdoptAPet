@@ -10,13 +10,17 @@
     {% for animal in animals %}
     <div
       id="{{ animal.id }}"
-      class="bg-background p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+      class="bg-background p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
     >
       <div class="text-center">
         <h2 class="text-2xl font-bold text-primary">{{ animal.nom }}</h2>
-        <p class="text-lg text-text mt-2">{{ animal.age }} ans</p>
+        <p class="text-lg text-text mt-2">
+          <i class="fas fa-birthday-cake text-primary mr-2"></i>{{ animal.age }}
+          ans
+        </p>
         <p class="text-sm text-secondary mt-1">
-          {{ animal.espece }} - {{ animal.race }}
+          <i class="fas fa-paw text-secondary mr-2"></i>{{ animal.espece }} -
+          <i class="fas fa-dog text-secondary mr-2"></i>{{ animal.race }}
         </p>
       </div>
       <div class="mt-4">
@@ -24,7 +28,7 @@
           href="/animal/{{ animal.id }}"
           class="w-full py-2 bg-accent text-white rounded-lg hover:bg-primary focus:outline-none block text-center"
         >
-          Voir les détails
+          <i class="fas fa-info-circle mr-2"></i>Voir les détails
         </a>
       </div>
     </div>
