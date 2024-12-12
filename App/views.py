@@ -16,7 +16,9 @@ def get_db():
 
 @app.route('/')
 def index():
-    return render_template('layout.html')
+    db = get_db()
+    animals = db.get_random_animals()
+    return render_template('home.html', animals=animals)
 
 
 if __name__=="__main__":

@@ -9,13 +9,13 @@
 
     <title>ADOPTAPET</title>
   </head>
-  <body class="bg-background">
+  <body class="bg-background text-text">
     <!-- Header -->
     <header
       class="flex items-center justify-between p-4 bg-background text-text border-b-2 border-primary"
     >
-      <div class="text-2xl font-bold text-primary">ADOPTAPET</div>
-      <div class="space-x-2">
+      <div class="text-3xl font-bold text-primary">ADOPTAPET</div>
+      <div class="space-x-4">
         <!-- Adoption Form Button -->
         <a
           href="/formulaire"
@@ -27,6 +27,6 @@
     </header>
 
     <!-- Main Content (Dynamique) -->
-    <main class="p-4">{% block content %}{% endblock %}</main>
+    <main class="p-6">{% block content %} {% endblock %}</main>
   </body>
 </html>
