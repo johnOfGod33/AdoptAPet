@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,6 @@
     <title>ADOPTAPET</title>
   </head>
   <body class="bg-background text-text">
-    <!-- Header -->
     <header
       class="flex items-center justify-between p-4 bg-background text-text border-b-2 border-primary shadow-lg"
     >
@@ -23,7 +22,6 @@
         <a href="/">ADOPTAPET</a>
       </div>
       <div class="space-x-4">
-        <!-- Adoption Form Button -->
         <a
           href="/formulaire"
           class="bg-background hover:text-white hover:bg-primary text-text font-bold px-4 py-2 rounded-lg border-2 border-primary transition-all duration-300 ease-in-out"
@@ -33,7 +31,6 @@
       </div>
     </header>
 
-    <!-- Main Content (Dynamique) -->
     <main class="p-6">{% block content %} {% endblock %}</main>
   </body>
 </html>

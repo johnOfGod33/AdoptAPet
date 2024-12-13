@@ -5,15 +5,26 @@
       Mise en Adoption
     </h2>
 
-    <form method="POST" action="/formulaire">
+    {% if error_message %}
+    <div
+      id="error-popup"
+      class="fixed top-12 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-3 py-2 rounded shadow-lg z-50 transition-opacity duration-300 flex items-center justify-center space-x-2"
+    >
+      <!-- Message d'erreur -->
+      <span>{{ error_message }}</span>
+    </div>
+    {% endif %}
+
+    <form method="POST" id="adoptionForm">
       <!-- Nom de l'animal -->
-      <div class="mb-4 relative">
+      <div class="mb-2 relative">
         <input
           type="text"
           name="nom"
           id="nom"
           class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           placeholder="Nom de l'animal"
+          value="{{nom}}"
           required
         />
         <span
@@ -22,15 +33,19 @@
           <i class="fas fa-paw"></i>
         </span>
       </div>
+      <div class="mb-2 relative">
+        <p class="text-red-500 text-sm mt-1 hidden" id="error-nom"></p>
+      </div>
 
       <!-- Âge de l'animal -->
-      <div class="mb-4 relative">
+      <div class="mb-2 relative">
         <input
           type="number"
           name="age"
           id="age"
           class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           placeholder="Âge de l'animal (en années)"
+          value="{{age}}"
           required
         />
         <span
@@ -39,15 +54,19 @@
           <i class="fas fa-calendar-alt"></i>
         </span>
       </div>
+      <div class="mb-2 relative">
+        <p class="text-red-500 text-sm mt-1 hidden" id="error-age"></p>
+      </div>
 
       <!-- Espèce -->
-      <div class="mb-4 relative">
+      <div class="mb-2 relative">
         <input
           type="text"
           name="espece"
           id="espece"
           class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           placeholder="Espèce de l'animal"
+          value="{{espece}}"
           required
         />
         <span
@@ -56,15 +75,19 @@
           <i class="fas fa-dog"></i>
         </span>
       </div>
+      <div class="mb-2 relative">
+        <p class="text-red-500 text-sm mt-1 hidden" id="error-espece"></p>
+      </div>
 
       <!-- Race -->
-      <div class="mb-4 relative">
+      <div class="mb-2 relative">
         <input
           type="text"
           name="race"
           id="race"
           class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           placeholder="Race de l'animal"
+          value="{{race}}"
           required
         />
         <span
@@ -73,9 +96,12 @@
           <i class="fas fa-paw"></i>
         </span>
       </div>
+      <div class="mb-2 relative">
+        <p class="text-red-500 text-sm mt-1 hidden" id="error-race"></p>
+      </div>
 
       <!-- Description -->
-      <div class="mb-4 relative">
+      <div class="mb-2 relative">
         <textarea
           name="description"
           id="description"
@@ -83,16 +109,22 @@
           class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           placeholder="Description de l'animal"
           required
-        ></textarea>
+        >
+        {{description}}
+      </textarea
+        >
         <span
           class="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary"
         >
           <i class="fas fa-align-left"></i>
         </span>
       </div>
+      <div class="mb-2 relative">
+        <p class="text-red-500 text-sm mt-1 hidden" id="error-description"></p>
+      </div>
 
       <!-- Informations de contact -->
-      <div class="grid grid-cols-2 gap-4 mb-4">
+      <div class="grid grid-cols-2 gap-4 mb-2">
         <!-- Courriel -->
         <div class="relative">
           <input
@@ -101,6 +133,7 @@
             id="courriel"
             class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Email"
+            value="{{courriel}}"
             required
           />
           <span
@@ -118,6 +151,7 @@
             id="adresse"
             class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Adresse"
+            value="{{adresse}}"
             required
           />
           <span
@@ -127,8 +161,18 @@
           </span>
         </div>
       </div>
+      <!-- Message erreur courriel addresse-->
+      <div class="grid grid-cols-2 gap-4 mb-2">
+        <div class="relative">
+          <p class="text-red-500 text-sm mt-1 hidden" id="error-courriel"></p>
+        </div>
+        <div class="relative">
+          <p class="text-red-500 text-sm mt-1 hidden" id="error-adresse"></p>
+        </div>
+      </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-4">
+      <!-- Informations ville cp-->
+      <div class="grid grid-cols-2 gap-4 mb-2">
         <!-- Ville -->
         <div class="relative">
           <input
@@ -137,6 +181,7 @@
             id="ville"
             class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Ville"
+            value="{{ville}}"
             required
           />
           <span
@@ -154,6 +199,7 @@
             id="cp"
             class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Code Postal"
+            value="{{cp}}"
             required
           />
           <span
@@ -161,6 +207,16 @@
           >
             <i class="fas fa-code"></i>
           </span>
+        </div>
+      </div>
+      <!-- Message erreur cp-->
+      <div class="grid grid-cols-2 gap-4 mb-2">
+        <div class="relative"></div>
+        <!-- Code Postal -->
+        <div class="relative">
+          <p class="text-red-500 text-sm mt-1 hidden" id="error-cp">
+            Veuillez entrer un code postal valide.
+          </p>
         </div>
       </div>
 
@@ -176,4 +232,5 @@
     </form>
   </div>
 </div>
+<script src="../static/js/formValidation.js"></script>
 {% endblock %}
