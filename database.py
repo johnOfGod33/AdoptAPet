@@ -60,6 +60,22 @@ class Animals_db :
         connection.commit()
 
         return cursor.lastrowid
+    
+    def search_animals(self, search_query):
+        cursor = self.get_connection().cursor()
+        query = """
+            SELECT id, nom, espece, race, age
+            FROM animaux
+            WHERE nom LIKE ? OR espece LIKE ? OR race LIKE ? 
+            LIMIT 5
+        """
+
+        cursor.execute(query, ('%' + search_query + '%', '%' + search_query + '%', '%' + search_query + '%'))
+
+        animals_data = cursor.fetchall()
+        animals = [Animal(*animal) for animal in animals_data]
+
+        return animals
 
 
         

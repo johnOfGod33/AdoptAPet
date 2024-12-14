@@ -16,11 +16,20 @@ def get_db():
 
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
+    query = request.args.get('q', '').strip()
     db = get_db()
-    animals = db.get_random_animals()
-    return render_template('home.html', animals=animals)
+
+    if query:  
+        animals = db.search_animals(query)
+        is_search = True
+    else: 
+        animals = db.get_random_animals()
+        is_search = False
+
+    return render_template('home.html', animals=animals, query=query, is_search=is_search)
+
 
 
 
