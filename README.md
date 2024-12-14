@@ -5,13 +5,13 @@ Une application web complète pour faciliter l'adoption d'animaux de compagnie. 
 ## FONCTIONALITES
 
 - Page d'accueil avec 5 animaux aléatoires et moteur de recherche.
-- Recherche avec affichage des résultats détaillés (nom, description, lien).
+- Recherche avec affichage des résultats.
 - Pages individuelles pour chaque animal (détails, lien de contact).
-- Formulaire de mise en adoption avec validations (nom, âge, adresse, etc.).
+- Formulaire de mise en adoption avec validation (nom, âge, adresse, etc.).
 - Gestion de la base de données SQLite pour les animaux.
 
-Technologies :
+## Technologies :
 
-- Frontend : HTML5, CSS3, JavaScript (frameworks/librairies au choix, sans installation).
-- Backend : Python 3.12+, Flask 3+.
-- Base de données : SQLite (UTF-8).
+- Frontend : HTML5, Tailwindcss, JavaScript.
+- Backend : Python, Flask.
+- Base de données : SQLite.
