@@ -1,17 +1,25 @@
 # AdoptApet
 
-Une application web complète pour faciliter l'adoption d'animaux de compagnie. Les utilisateurs peuvent consulter les animaux disponibles, rechercher selon des critères spécifiques, et mettre en adoption leurs propres animaux via un formulaire simple.
+A complete web application to facilitate pet adoption. Users can browse available animals, search based on specific criteria, and put their own pets up for adoption using a simple form.
 
-## FONCTIONALITES
+![home page](/App/static/assets/homePage.png)
 
-- Page d'accueil avec 5 animaux aléatoires et moteur de recherche.
-- Recherche avec affichage des résultats.
-- Pages individuelles pour chaque animal (détails, lien de contact).
-- Formulaire de mise en adoption avec validation (nom, âge, adresse, etc.).
-- Gestion de la base de données SQLite pour les animaux.
+![aniamls details](/App/static/assets/animals_details.png)
 
-## Technologies :
+![form](/App/static/assets/form.png)
 
-- Frontend : HTML5, Tailwindcss, JavaScript.
-- Backend : Python, Flask.
-- Base de données : SQLite.
+## FEATURES
+
+- Home page displaying 5 random animals and a search engine.
+- Search functionality with detailed results (name, description, link).
+- Individual pages for each animal (details, contact link).
+
+* Adoption submission form with validations (name, age, address, etc.).
+
+- SQLite database management for animal records.
+
+Technologies:
+
+- Frontend: HTML5, CSS3, JavaScript
+- Backend: Python, Flask 3
+- Database: SQLite
